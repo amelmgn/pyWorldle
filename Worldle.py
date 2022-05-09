@@ -63,7 +63,7 @@ while True:
 
     end_time: float = time.time()
     duration = round((end_time - start_time), 1)
-    print(f'\nИгра окончена. Ваш счет: {score}. Ваше время: {duration} cек. Начать заново? Y/N')
+    print(f'\nИгра окончена. Ваш счет: {score}. Ваше время: {duration} cек. Начать заново? Да/Нет')
 
     if input().lower()[0] != ('y' or 'д'):
         break
