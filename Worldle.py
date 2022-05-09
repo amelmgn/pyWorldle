@@ -27,7 +27,6 @@ while True:
         in_word = input().lower()
 
         # Проверка, 5 ли букв в слове?
-        nn = len(in_word)
         if len(in_word) != 5:
             print("\nВведите слово из 5 букв!")
             print(f"Осталось попыток: {len(sel_word) - nums_of_try - 1}")
