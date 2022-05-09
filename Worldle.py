@@ -1,6 +1,6 @@
 import random
 import time
-import description
+import Description
 from colorama import Back, Fore, Style
 
 # Открываем файл с базой данных
@@ -9,7 +9,7 @@ words_list = str(db.read()).split(';')
 db.close()
 
 # Выводим описание
-print(Back.WHITE + Fore.BLACK + description.dtext() + Style.RESET_ALL)
+print(Back.WHITE + Fore.BLACK + Description.show() + Style.RESET_ALL)
 
 while True:
     # Определяем переменные
