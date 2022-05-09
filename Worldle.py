@@ -5,7 +5,6 @@ from colorama import Back, Fore, Style
 
 # Открываем файл с базой данных
 db = open('words_db')
-
 words_list = str(db.read()).split(';')
 db.close()
 
@@ -16,11 +15,10 @@ while True:
     # Определяем переменные
     answer = ""
     score = 50
-    start_time = end_time = 0
+    start_time = end_time = 0.0
 
     # Выбранное слово из списка
     sel_word = random.choice(words_list)
-    print(sel_word)  # Не забыть убрать
 
     for nums_of_try, let in enumerate(sel_word):
         # Получение пользовательского слова
