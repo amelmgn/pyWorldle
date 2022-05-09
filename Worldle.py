@@ -1,8 +1,10 @@
 import random
 from colorama import Back, Fore, Style
 
-# Изначальный список слов
-words_list = ['table', 'apple', 'homer', 'catty']
+# Открываем файл с базой данных
+db = open('/home/alex/PycharmProjects/pythonProject/words_db')
+words_list = str(db.read()).split(';')
+db.close()
 
 print(Back.WHITE + Fore.BLACK + '''Добро пожаловать в игру PyWordle! Правила игры: вы угадываете выбранное компьютером 
 слово из 5 букв с 5 попыток. Если во введенном вами слове есть буква из загаданного слова, она отмечается желтым фоном. 
