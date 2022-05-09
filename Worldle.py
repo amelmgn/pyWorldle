@@ -1,4 +1,5 @@
 import random
+import time
 from colorama import Back, Fore, Style
 
 # Открываем файл с базой данных
@@ -6,6 +7,7 @@ db = open('/home/alex/PycharmProjects/pythonProject/words_db')
 words_list = str(db.read()).split(';')
 db.close()
 
+# Выводим описание
 print(Back.WHITE + Fore.BLACK + '''Добро пожаловать в игру PyWordle! Правила игры: вы угадываете выбранное компьютером 
 слово из 5 букв с 5 попыток. Если во введенном вами слове есть буква из загаданного слова, она отмечается желтым фоном. 
 Если во введенном слове буква стоит на том же месте, что и в загаданном слове, она отмечается зеленым фоном. В конце 
@@ -15,6 +17,7 @@ while True:
     # Определяем переменные
     answer = ""
     score = 50
+    start_time = end_time = 0
 
     # Выбранное слово из списка
     sel_word = random.choice(words_list)
@@ -22,6 +25,7 @@ while True:
 
     for nums_of_try, let in enumerate(sel_word):
         # Получение пользовательского слова
+        start_time: float = time.time()
         print("\nВведите слово:")
         in_word = input().lower()
 
@@ -55,9 +59,11 @@ while True:
 
         print(answer)
         answer = ''
-        score = score - nums_of_try*10
+        score = score - (nums_of_try + 1) * 10
 
-    print(f'\nИгра окончена. Ваш счет: {score} Начать заново? Y/N')
+    end_time: float = time.time()
+    duration = round((end_time - start_time), 1)
+    print(f'\nИгра окончена. Ваш счет: {score}. Ваше время: {duration} cек. Начать заново? Y/N')
 
     if input().lower()[0] != ('y' or 'д'):
         break
